@@ -6,13 +6,8 @@
 
 What is the largest prime factor of the number 600851475143 ?"
 
-(defn primes [max]
-  (->> max 
-       (range 2)
-       (filter #(= true (f/prime? %)))))
-
 (defn get-largest-factor [n]
-  (->> (primes n)
+  (->> (f/primes n)
        reverse
        (filter #(zero? (mod n %)))
        first))
