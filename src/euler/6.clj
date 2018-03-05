@@ -15,7 +15,6 @@ Find the difference between the sum of the squares of the first one hundred natu
 (defn sum-squares [num max acc]
   (let [sq  (* num num)
         sum (+ acc sq)]
-    (+ acc (* num num))
     (if (= num max)
       sum 
       (recur (inc num) max sum))))
@@ -29,4 +28,4 @@ Find the difference between the sum of the squares of the first one hundred natu
   (- (square-sum max)
      (sum-squares 1 max 0)))
 
-;; (square-diff 100)
+(square-diff 100)

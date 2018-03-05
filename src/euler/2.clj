@@ -6,19 +6,13 @@
 
 By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms."
 
-(defn fib [n]
-  (case n
-    0 n 
-    1 n
-    2 n
-    (+ (fib (- n 1))
-       (fib (- n 2)))))
+(def fib (lazy-cat
+          [0 1]
+          (map + fib (rest fib))))
 
 (defn sum-even-fibs [max]
-  (let [fib-seq (map fib (range 1 max))]
-    (->> fib-seq 
-         (filter even?)
-         (reduce +))))
+  (reduce + (take-while (partial >= max)
+                        (filter even? fib))))
 
-;; (sum-even-fibs 40000000)
+(sum-even-fibs 4000000)
 

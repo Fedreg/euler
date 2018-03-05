@@ -5,14 +5,9 @@
 Find the sum of all the multiples of 3 or 5 below 1000."
 
 (defn sum-mult-3-5 [max]
-  (let [nums (range 1 max)
-        func (fn [n] (cond
-                       (= 0 (mod n 3)) n 
-                       (= 0 (mod n 5)) n))]
-    (->> nums
-         (map func)
-         (filter identity)
-         (reduce +))))
+  (reduce + (filter #(or (zero? (mod % 3))
+                         (zero? (mod % 5)))
+                    (range max))))
 
-;; (sum-mult-3-5 1000)
+(sum-mult-3-5 1000)
 
