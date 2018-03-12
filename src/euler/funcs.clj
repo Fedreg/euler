@@ -29,3 +29,16 @@
   (= (* c c) 
      (+ (* a a)
         (* b b))))
+
+(defn factorial [n acc]
+  (if (= 1 n)
+    acc
+    (recur (dec n) (* n acc))))
+
+(defn one? [n]
+  (= n 1))
+
+(defn square [n pow acc cnt]
+  (if (= cnt pow)
+    acc 
+    (recur n pow (* n acc) (inc cnt))))

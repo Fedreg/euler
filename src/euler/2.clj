@@ -14,5 +14,5 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
   (reduce + (take-while (partial >= max)
                         (filter even? fib))))
 
-(sum-even-fibs 4000000)
+(time (sum-even-fibs 4000000))
 
