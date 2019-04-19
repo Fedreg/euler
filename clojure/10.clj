@@ -10,10 +10,8 @@
        (zero? (mod n 1))
        (empty? (filter #(zero? (mod n %)) (range 2 n)))))
 
-(defn primes [max]
-  "Returns all primes up to max"
-  (->> max
-       (range 2)
-       (filter #(= true (prime? %)))))
+(defn p [max]
+  (let [nums (filter prime? (range 1 max 2))]
+    (reduce + nums)))
 
-;; (reduce + (primes 2000000))
+;(p 2000000)
