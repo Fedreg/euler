@@ -1,5 +1,3 @@
-(ns euler.funcs)
-
 (defn prime? [n]
   (if
     (some true? (map (fn [a] (zero? (mod n a))) (range 2 n)))

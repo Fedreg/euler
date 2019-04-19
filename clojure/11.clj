@@ -1,7 +1,6 @@
-(ns euler.11)
-
-"In the 20×20 grid below, four numbers along a diagonal line have been marked in red."
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 11
+;; In the 20×20 grid below, four numbers along a diagonal line have been marked in red."
 
 (def grid
    [8 2 22 97 38 15 0 40 0 75 4 5 7 78 52 12 50 77 91 8
@@ -25,10 +24,11 @@
    20 73 35 29 78 31 90 1 74 31 49 71 48 86 81 16 23 57 5 54
    1 70 54 71 83 51 54 69 16 92 33 48 61 43 52 1 89 19 67 48])
 
-"The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
-
-What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?"
-
+;; The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
+;;
+;; What is the greatest product of four adjacent numbers in the same
+;; direction (up, down, left, right, or diagonally) in the 20×20 grid?
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defn direction [dir]
   (case dir
@@ -49,5 +49,5 @@ What is the greatest product of four adjacent numbers in the same direction (up,
 (defn greatest-product []
   (last (sort (map #(get-vals (direction %) []) [:u/d :l/r :dg]))))
 
-(greatest-product)
+;;(greatest-product)
 
